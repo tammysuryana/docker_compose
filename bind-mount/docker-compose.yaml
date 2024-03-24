@@ -11,7 +11,10 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: tammy9
       MONGO_INITDB_DATABASE: admin
     volumes:
-      - "./data-mongo1:/data/db"
+      - "./data-mongo1:/data/db" ## ditulis dengan simple nanum type nya default sebagai volume 
+
+
+      # buat container  mongodb dua 
   mongodb2:
     image: mongo:latest
     container_name: mongodb2
@@ -21,8 +24,8 @@ services:
       MONGO_INITDB_ROOT_USERNAME: tammysuryana
       MONGO_INITDB_ROOT_PASSWORD: tammy9
       MONGO_INITDB_DATABASE: admin
-    volumes:
+    volumes:              ##  penyimpanan bisa ditulis dengan cara spesifik seperti ini dengan type Bind yang di arahkan ke folder local 
       - type: bind
-        source: "./data-mongo2"
+        source: "./data-mongo2" #beri nama folder dan disimpan di mana 
         target: "/data/db"
         read_only: false
