@@ -1,0 +1,12 @@
+name: tammyaplikasi_mongo_db
+
+services:
+  mongodb-example:
+    image: mongo:latest
+    container_name: mongodb-example
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: tammysuryana
+      MONGO_INITDB_ROOT_PASSWORD: tammy9
+      MONGO_INITDB_DATABASE: admin

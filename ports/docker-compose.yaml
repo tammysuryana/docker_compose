@@ -1,0 +1,21 @@
+name : aplikasi_port_example_tams 
+
+services:
+  nginx-port1:
+    image: nginx:latest
+    container_name: nginx-port1
+    ports:
+        #port untuk aksess container dan port ke host long syntax
+      - protocol: tcp
+        # port publish ke-luar 
+        published: 8080
+        # port untuk masuk ke kontainer 
+        target: 80
+
+
+#      ini adalah image yang sama dengan contoh ports simple syntax (syntax pendek /sederhana)
+  nginx-port2:
+    image: nginx:latest
+    container_name: nginx-port2
+    ports:
+      - "8081:80"

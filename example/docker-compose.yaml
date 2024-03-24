@@ -1,0 +1,12 @@
+name: aplikasitammy
+
+services:
+  nginx-example:
+    container_name: nginx-example
+    image: nginx:latest
+  nginx-example2:
+    container_name: nginx-example2
+    image: nginx:latest
+
+ 
+ ## perubahan sedikit ajja 

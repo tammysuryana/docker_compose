@@ -1,0 +1,47 @@
+name: tammybelajar
+
+services:
+
+  Mongov1:
+    image: mongo:latest
+    container_name: mongodb-tammy
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: tammy
+      MONGO_INITDB_ROOT_PASSWORD: tammy
+      MONGO_INITDB_DATABASE: admin
+    networks:
+      - tams_networking
+    volumes:
+          - type: volume
+            source: "datamongov1"
+            target: "/data/db"
+            read_only: "false"
+  
+  mongodb-express-example:
+    image: mongo-express:latest
+    container_name: mongodb-express-example
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: tammy
+      ME_CONFIG_MONGODB_ADMINPASSWORD: tammy
+      ME_CONFIG_MONGODB_SERVER: Mongov1
+    
+    networks:
+      - tams_networking
+    depends_on:
+      - Mongov1
+
+networks:
+  tams_networking:
+    name: tamsnetworkssss
+    driver: bridge
+
+volumes: 
+  datamongov1 :
+    name: datamongos
+
+    
